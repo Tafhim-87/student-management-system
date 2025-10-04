@@ -27,7 +27,7 @@ interface ProfileResponse {
 // Different navs for each role
 const superAdminNav = [
   { name: "Dashboard", path: "/dashboard", icon: <HomeIcon size={20} /> },
-  { name: "Orders", path: "/pos/orders", icon: <NotebookText size={20} /> },
+  { name: "Reports", path: "/list/reports", icon: <NotebookText size={20} /> },
   { name: "Menu", path: "/pos/menu", icon: <CookingPot size={20} /> },
   { name: "Payments", path: "/pos/payments", icon: <CircleDollarSign size={20} /> },
   { name: "Print Bill", path: "/pos/print-bill", icon: <PrinterCheck size={20} /> },
@@ -38,14 +38,14 @@ const adminNav = [
   { name: "Dashboard", path: "/admin-dashboard", icon: <HomeIcon size={20} /> },
   { name: "Teachers", path: "/list/teachers", icon: <NotebookText size={20} /> },
   { name: "Students", path: "/list/students", icon: <CookingPot size={20} /> },
-  { name: "Payments", path: "/pos/payments", icon: <CircleDollarSign size={20} /> },
-  { name: "Print Bill", path: "/pos/print-bill", icon: <PrinterCheck size={20} /> },
+  { name: "Reports", path: "/list/reports", icon: <CircleDollarSign size={20} /> },
+  { name: "Print Result", path: "/list/print_result", icon: <PrinterCheck size={20} /> },
   { name: "Manage Teachers", path: "/teachers", icon: <NotebookText size={20} /> },
 ];
 
 const teacherNav = [
   { name: "Dashboard", path: "/dashboard", icon: <HomeIcon size={20} /> },
-  { name: "Orders", path: "/pos/orders", icon: <NotebookText size={20} /> },
+  { name: "Orders", path: "/signin", icon: <NotebookText size={20} /> },
   { name: "Orders", path: "/pos/order", icon: <NotebookText size={20} /> }, // Note: Duplicate "Orders" with different paths
 ];
 
