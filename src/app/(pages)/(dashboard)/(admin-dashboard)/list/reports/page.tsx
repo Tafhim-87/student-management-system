@@ -8,7 +8,9 @@ import { Badge } from "@/components/ui/badge";
 import { toast, ToastContainer } from "react-toastify";
 import { useRouter } from "next/navigation";
 import { Printer, Search, Filter, X } from "lucide-react";
+import  useAuthGuard  from "@/hooks/useAuthGuard";
 import "react-toastify/dist/ReactToastify.css";
+import DashboardNav from "@/components/admin-dashboard/DashboardNav";
 
 interface Student {
   _id: string;
@@ -34,6 +36,9 @@ interface Result {
 const semesters = ["1st", "2nd", "3rd"] as const;
 
 const Page = () => {
+
+  useAuthGuard();
+
   const [students, setStudents] = useState<Student[]>([]);
   const [filteredStudents, setFilteredStudents] = useState<Student[]>([]);
   const [subjects, setSubjects] = useState<{ [key: string]: string[] }>({});
@@ -138,7 +143,7 @@ const Page = () => {
             };
           } catch (error) {
             if(error instanceof Error) {
-              console.error(`Error fetching results for ${student.name}:`, error.message);
+              // console.error(`Error fetching results for ${student.name}:`, error.message);
             } else {
               console.error(`Error fetching results for ${student.name}:`, error);
             }
@@ -374,7 +379,8 @@ const Page = () => {
   }
 
   return (
-    <div className="space-y-6 p-4 max-w-7xl mx-auto">
+    <div className="space-y-6 p-4 mx-auto">
+      <DashboardNav />
       {/* Header */}
       <div className="flex justify-between items-center">
         <h1 className="text-3xl font-bold text-gray-900">Student Results Management</h1>
@@ -392,7 +398,7 @@ const Page = () => {
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {/* Search by Name */}
             <div className="space-y-2">
               <label className="text-sm font-medium">Search by Name</label>
@@ -433,22 +439,12 @@ const Page = () => {
                 className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               >
                 <option value="">All sections</option>
-                {uniqueSections.map((section) => (
-                  <option key={section} value={section}>
+                {uniqueSections.map((section, index) => (
+                  <option key={index} value={section}>
                     Section {section}
                   </option>
                 ))}
               </select>
-            </div>
-
-            {/* Roll Filter */}
-            <div className="space-y-2">
-              <label className="text-sm font-medium">Roll Number</label>
-              <Input
-                placeholder="Roll number..."
-                value={rollFilter}
-                onChange={(e) => setRollFilter(e.target.value)}
-              />
             </div>
 
             {/* Clear Filters */}
