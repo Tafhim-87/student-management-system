@@ -27,3 +27,19 @@ export interface ResultResponse {
   student: Student;
   results: Result;
 }
+
+export interface Student {
+  _id: string;
+  name: string;
+  userName: string;
+  roll: number;
+  class: string;
+  section: string;
+  paymentAmount: number;
+  hasPaid: boolean;
+  createdBy: {
+    firstName: string;
+    lastName: string;
+    email: string;
+  };
+}

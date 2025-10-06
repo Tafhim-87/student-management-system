@@ -39,7 +39,7 @@ const adminNav = [
   { name: "Teachers", path: "/list/teachers", icon: <NotebookText size={20} /> },
   { name: "Students", path: "/list/students", icon: <CookingPot size={20} /> },
   { name: "Reports", path: "/list/reports", icon: <CircleDollarSign size={20} /> },
-  { name: "Print Result", path: "/list/print_result", icon: <PrinterCheck size={20} /> },
+  { name: "Payments", path: "/list/payment", icon: <PrinterCheck size={20} /> },
   { name: "Manage Teachers", path: "/teachers", icon: <NotebookText size={20} /> },
 ];
 

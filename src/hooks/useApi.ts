@@ -17,41 +17,50 @@ export default function useApi<T>() {
   });
 
   const request = useCallback(
-    async (
-      method: "get" | "post" | "put" | "patch" | "delete",
-      url: string,
-      body ?: unknown,
-      config?: AxiosRequestConfig
-    ): Promise<T | null> => {
-      setResponse({ data: null, error: null, loading: true });
-      try {
-        const res = await axios({
-          method,
-          url: `${API_BASE_URL}${url}`,
-          data: body,
-          ...config,
-          headers: {
-            "Content-Type": "application/json",
-            ...config?.headers,
-            Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-          },
-        });
-        setResponse({ data: res.data, error: null, loading: false });
-        return res.data;
-      } catch (err) {
-        if(err instanceof Error) {
-          setResponse({ data: null, error: err.message, loading: false });
-        }
-        setResponse({
-          data: null,
-          error: err instanceof Error ? err.message : "Something went wrong",
-          loading: false,
-        });
-        return null;
+  async (
+    method: "get" | "post" | "put" | "patch" | "delete",
+    url: string,
+    body?: unknown,
+    config?: AxiosRequestConfig
+  ): Promise<T | null> => {
+    setResponse({ data: null, error: null, loading: true });
+    try {
+      const res = await axios({
+        method,
+        url: `${API_BASE_URL}${url}`,
+        data: body,
+        ...config,
+        headers: {
+          "Content-Type": "application/json",
+          ...config?.headers,
+          Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        },
+      });
+      setResponse({ data: res.data, error: null, loading: false });
+      return res.data;
+    } catch (err) {
+      let errorMessage = "Something went wrong";
+      
+      if (axios.isAxiosError(err)) {
+        // Extract the actual error message from server response
+        errorMessage = err.response?.data?.message 
+                    || err.response?.data?.error
+                    || err.message
+                    || "Something went wrong";
+      } else if (err instanceof Error) {
+        errorMessage = err.message;
       }
-    },
-    []
-  );
+      
+      setResponse({
+        data: null,
+        error: errorMessage,
+        loading: false,
+      });
+      return null;
+    }
+  },
+  []
+);
 
   return {
   ...response,
