@@ -128,7 +128,7 @@ const Page = () => {
 
   // ✅ Fetch students and results
   useEffect(() => {
-    if (user?.role === "super_admin" || user?.role === "admin") {
+    if (user?.role === "super_admin" || user?.role === "admin" || user?.role === "teacher") {
       fetchStudentsAndResults();
     }
   }, [user]);
@@ -488,11 +488,11 @@ const Page = () => {
     );
   }
 
-  if (error || (user?.role !== "super_admin" && user?.role !== "admin")) {
+  if (error || (user?.role !== "super_admin" && user?.role !== "admin" && user?.role !== "teacher")) {
     return (
       <div className="text-red-500 text-center p-8">
         {error ||
-          "Access Denied: Only super admins and admins can view this page."}
+          "Access Denied: Only super admins, admins and teachers can view this page."}
       </div>
     );
   }

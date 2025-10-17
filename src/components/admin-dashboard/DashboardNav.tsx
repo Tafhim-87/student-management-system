@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { 
-  User, LogOut, PlusCircle, Menu, X, Users, GraduationCap
+  User, LogOut, Menu, X, Users, GraduationCap
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {

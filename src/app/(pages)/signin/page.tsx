@@ -63,8 +63,12 @@ const SignInPage = () => {
         } else if (role === 'teacher') {
           router.push('/teacher-dashboard');
           toast.success('Signed in successfully');
+        } else if (role === 'student') {
+          router.push('/student-result');
+          toast.success('Signed in successfully');
         } else {
           window.location.href = '/';
+          toast.success('Not a valid user role, redirected to home.');
         }
       }
     } catch (error) {

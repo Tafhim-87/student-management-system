@@ -40,13 +40,15 @@ const adminNav = [
   { name: "Students", path: "/list/students", icon: <CookingPot size={20} /> },
   { name: "Reports", path: "/list/reports", icon: <CircleDollarSign size={20} /> },
   { name: "Payments", path: "/list/payment", icon: <PrinterCheck size={20} /> },
-  { name: "Manage Teachers", path: "/teachers", icon: <NotebookText size={20} /> },
 ];
 
 const teacherNav = [
-  { name: "Dashboard", path: "/dashboard", icon: <HomeIcon size={20} /> },
-  { name: "Orders", path: "/signin", icon: <NotebookText size={20} /> },
-  { name: "Orders", path: "/pos/order", icon: <NotebookText size={20} /> }, // Note: Duplicate "Orders" with different paths
+  { name: "Dashboard", path: "/teacher-dashboard", icon: <HomeIcon size={20} /> },
+  { name: "Reports", path: "/list/reports", icon: <NotebookText size={20} /> }, 
+];
+
+const studentNav = [
+  { name: "Result", path: "/student-result", icon: <HomeIcon size={20} /> },
 ];
 
 export default function SideNav({ children }: { children: React.ReactNode }) {
@@ -74,6 +76,7 @@ export default function SideNav({ children }: { children: React.ReactNode }) {
   if (role === "super_admin") navItems = superAdminNav;
   else if (role === "admin") navItems = adminNav;
   else if (role === "teacher") navItems = teacherNav;
+  else if (role === "student") navItems = studentNav;
 
   return (
     <section className="min-h-screen">
