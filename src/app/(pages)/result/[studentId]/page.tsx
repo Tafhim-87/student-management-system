@@ -55,8 +55,6 @@ export default function ResultPrintPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [isPrinting, setIsPrinting] = useState(false);
-  const [examTypeFilter, setExamTypeFilter] = useState<string>("all");
-  const [semesterFilter, setSemesterFilter] = useState<string>("all");
 
   useEffect(() => {
     fetchResult();
