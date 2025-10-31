@@ -129,6 +129,10 @@ body{
   font-family: 'Schoolbell', cursive;
 }
 
+html{
+  scroll-behavior: smooth;
+}
+
 .suse-mono {
   font-family: 'SUSE Mono', monospace;
 }

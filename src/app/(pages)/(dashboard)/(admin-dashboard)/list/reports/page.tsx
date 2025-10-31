@@ -75,7 +75,7 @@ const Page = () => {
   const [selectedExamTypes, setSelectedExamTypes] = useState<{
     [studentId: string]: string;
   }>({});
-  const [loading, setLoading] = useState<string | null>(null);
+  const [, setLoading] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState<string | null>(null);
   const [user, setUser] = useState<User | null>(null);
   const [isLoadingUser, setIsLoadingUser] = useState(true);
@@ -170,6 +170,7 @@ const Page = () => {
           };
         } catch (error) {
           return { studentId: student._id, results: [] };
+          console.error("Error fetching results for student:", error);
         }
       });
 

@@ -9,9 +9,8 @@ import {
   X,
   HomeIcon,
   NotebookText,
-  CookingPot,
-  CircleDollarSign,
   PrinterCheck,
+  GraduationCap,
 } from "lucide-react";
 
 // Define the expected response type from the /profile API
@@ -28,17 +27,13 @@ interface ProfileResponse {
 const superAdminNav = [
   { name: "Dashboard", path: "/dashboard", icon: <HomeIcon size={20} /> },
   { name: "Reports", path: "/list/reports", icon: <NotebookText size={20} /> },
-  { name: "Menu", path: "/pos/menu", icon: <CookingPot size={20} /> },
-  { name: "Payments", path: "/pos/payments", icon: <CircleDollarSign size={20} /> },
-  { name: "Print Bill", path: "/pos/print-bill", icon: <PrinterCheck size={20} /> },
-  { name: "Manage Admins", path: "/admin", icon: <CircleDollarSign size={20} /> }, // super_admin only
 ];
 
 const adminNav = [
   { name: "Dashboard", path: "/admin-dashboard", icon: <HomeIcon size={20} /> },
   { name: "Teachers", path: "/list/teachers", icon: <NotebookText size={20} /> },
-  { name: "Students", path: "/list/students", icon: <CookingPot size={20} /> },
-  { name: "Reports", path: "/list/reports", icon: <CircleDollarSign size={20} /> },
+  { name: "Students", path: "/list/students", icon: <GraduationCap size={20} /> },
+  { name: "Reports", path: "/list/reports", icon: <NotebookText size={20} /> },
   { name: "Payments", path: "/list/payment", icon: <PrinterCheck size={20} /> },
 ];
 
