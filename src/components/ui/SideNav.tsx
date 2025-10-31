@@ -57,7 +57,7 @@ export default function SideNav({ children }: { children: React.ReactNode }) {
     const fetchUser = async () => {
       try {
         const res = await api.get("/profile") as ProfileResponse;
-        setRole(res?.user?.role ?? null); // Fallback to null if role is undefined
+        setRole(res?.user?.role ?? null); 
       } catch (err) {
         console.error("Failed to fetch user profile", err);
         setRole(null); // Set role to null on error
@@ -81,7 +81,7 @@ export default function SideNav({ children }: { children: React.ReactNode }) {
           ${open ? "translate-x-0" : "-translate-x-full"} md:translate-x-0`}
       >
         <div className="flex items-center justify-between px-4 py-5 border-b">
-          <h1 className="text-lg font-bold">POS System</h1>
+          <h1 className="text-lg font-bold">{role?.toUpperCase()} DASHBOARD</h1>
           <button
             className="md:hidden text-gray-400 hover:text-gray-200"
             onClick={() => setOpen(false)}

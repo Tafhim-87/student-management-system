@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=SUSE+Mono:ital,wght@0,100..800;1,100..800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Cursive:wght@400..700&family=Schoolbell&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lavishly+Yours&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -135,6 +136,11 @@ html{
 
 .suse-mono {
   font-family: 'SUSE Mono', monospace;
+}
+
+.logo_text {
+  font-family: 'Lavishly Yours', cursive;
+  font-weight: 700;
 }
 
 @media print {

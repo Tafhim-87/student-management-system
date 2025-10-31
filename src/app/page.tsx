@@ -524,9 +524,21 @@ export default function Home() {
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
-              className="flex items-center space-x-2"
+                transition={{ delay: 0.2 }}
+              className="flex items-center bg-transparent shadow-neutral-950"
             >
-              <Image src={Logo} alt="Logo" width={100} height={100} />
+              <motion.h1
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                className="text-xl font-bold  text-[#3B82F6] logo_text mt-1"
+              >AP</motion.h1>
+              <Image src={Logo} alt="Logo" width={40} height={30} />
+              <motion.h1
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.4 }}
+                className="text-xl font-bold  text-[#5874b0] logo_text mt-1"
+              >US</motion.h1>
             </motion.div>
 
             {/* Sign In Button */}
