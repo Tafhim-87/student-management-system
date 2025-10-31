@@ -24,7 +24,7 @@ export default function PaymentsPage() {
     const fetchPayments = async () => {
       try {
         const token = localStorage.getItem("accessToken");
-        const res = await axios.get("http://localhost:5000/api/student", {
+        const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/student`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -36,7 +36,7 @@ export default function PaymentsPage() {
             try {
               // Get detailed payment info including days left
               const paymentRes = await axios.get(
-                `http://localhost:5000/api/payments/${s._id}`,
+                `${process.env.NEXT_PUBLIC_API_URL}/payments/${s._id}`,
                 {
                   headers: {
                     Authorization: `Bearer ${token}`,
@@ -101,7 +101,7 @@ export default function PaymentsPage() {
   const handleSavePayment = async (_id: string, amount: number, paid: boolean) => {
     try {
       const response = await axios.put(
-        `http://localhost:5000/api/payments/${_id}`,
+        `${process.env.NEXT_PUBLIC_API_URL}/payments/${_id}`,
         { paymentAmount: amount, hasPaid: paid },
         {
           headers: {
